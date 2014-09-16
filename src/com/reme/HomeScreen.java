@@ -18,6 +18,5 @@ public class HomeScreen extends Activity {
 		getMenuInflater().inflate(R.menu.intro, menu);
 		return true;
 	}
-
 	
 }

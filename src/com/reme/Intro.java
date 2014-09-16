@@ -14,6 +14,7 @@ public class Intro extends Activity {
 		
 		Intent i = new Intent(getApplicationContext(), HomeScreen.class);
 		startActivity(i);
+		this.finish();
 	}
 
 	@Override
