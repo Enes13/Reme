@@ -6,34 +6,121 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/remember_me"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/event_settings_1" />
+        android:text="@string/event_settings_1"
+        android:textColor="@android:color/white" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/editText1"
+        <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="@string/date"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/DD"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/date"
+            android:background="@android:color/background_light"
             android:ems="10"
-            android:inputType="date" >
-
-            <requestFocus />
-        </EditText>
+            android:inputType="number" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/MM"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/dot1"
+            android:background="@android:color/background_light"
+            android:ems="10"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/YY"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/dot2"
+            android:background="@android:color/background_light"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/dot1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/DD"
+            android:text="@string/dot"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/dot2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/MM"
+            android:text="@string/dot"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/YY"
+            android:text="@string/time"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/hh"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/time"
+            android:background="@android:color/background_light"
             android:ems="10"
             android:inputType="time" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/doubledot1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/hh"
+            android:text="@string/dot"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
+        
+                <EditText
+            android:id="@+id/mm"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/doubledot1"
+            android:background="@android:color/background_light"
+            android:ems="10"
+            android:inputType="time" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,8 +132,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/or_capitilized" />
-
+            android:text="@string/or_capitilized"
+            android:textColor="@android:color/white" />
     </RelativeLayout>
 
 </LinearLayout>

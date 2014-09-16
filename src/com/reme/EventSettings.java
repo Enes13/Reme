@@ -16,6 +16,7 @@ public class EventSettings extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eventsettings);
 
+	//	setColors();
 		init_or_button();
 	}
 
@@ -44,6 +45,27 @@ public class EventSettings extends Activity {
 			}
 		});
 	}
+	
+//	private void setColors() {
+//		TextView tv1 = (TextView) findViewById(R.id.textView1);
+//		TextView tv2 = (TextView) findViewById(R.id.textView2);
+//		TextView tv3 = (TextView) findViewById(R.id.textView3);
+//		
+//		EditText et1 = (EditText) findViewById(R.id.editText1);
+//		EditText et2 = (EditText) findViewById(R.id.editText2);
+//		
+//		Button b1 = (Button) findViewById(R.id.or_button);
+//		
+//		b1.setTextColor(Color.WHITE);
+//		tv1.setTextColor(Color.WHITE);
+//		tv2.setTextColor(Color.WHITE);
+//		tv3.setTextColor(Color.WHITE);
+//		et1.setBackgroundColor(Color.GRAY);
+//		et1.setTextColor(Color.WHITE);
+//		et2.setBackgroundColor(Color.GRAY);
+//		et2.setTextColor(Color.WHITE);
+//		
+//	}
 
 	public String getButtonState() {
 		return buttonState;
