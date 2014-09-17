@@ -21,30 +21,59 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:text="@string/date"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/selectdatebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MM"
+            android:layout_toRightOf="@+id/date"
+            android:text="@string/select"
+            android:textColor="@android:color/white" />
+        
+                <Button
+            android:id="@+id/selecttimebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MM"
+            android:layout_toLeftOf="@+id/mm"
+            android:text="@string/select"
             android:textColor="@android:color/white" />
 
         <EditText
             android:id="@+id/DD"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/date"
             android:background="@android:color/background_light"
             android:ems="10"
             android:hint="DD"
             android:inputType="number"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/dot1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/selectdatebutton"
+            android:layout_toRightOf="@id/DD"
+            android:text="@string/dot"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
 
         <EditText
             android:id="@+id/MM"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/dot1"
             android:background="@android:color/background_light"
             android:ems="10"
@@ -52,11 +81,21 @@
             android:inputType="number"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+        <TextView
+            android:id="@+id/dot2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/selectdatebutton"
+            android:layout_toRightOf="@+id/MM"
+            android:text="@string/dot"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
+
         <EditText
             android:id="@+id/YY"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/dot2"
             android:background="@android:color/background_light"
             android:ems="10"
@@ -65,33 +104,11 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/dot1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/DD"
-            android:text="@string/dot"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white" />
-
-        <TextView
-            android:id="@+id/dot2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/MM"
-            android:text="@string/dot"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white" />
-
-        <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_above="@+id/selectdatebutton"
+            android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/YY"
             android:text="@string/time"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -101,8 +118,8 @@
             android:id="@+id/hh"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/time"
+            android:layout_above="@+id/selectdatebutton"
+            android:layout_toRightOf="@+id/time"
             android:background="@android:color/background_light"
             android:ems="10"
             android:hint="hh"
@@ -113,7 +130,7 @@
             android:id="@+id/doubledot1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_above="@+id/selectdatebutton"
             android:layout_toRightOf="@+id/hh"
             android:text="@string/doubledot"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -123,8 +140,8 @@
             android:id="@+id/mm"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/doubledot1"
+            android:layout_above="@+id/selectdatebutton"
+            android:layout_toRightOf="@+id/doubledot1"
             android:background="@android:color/background_light"
             android:ems="10"
             android:hint="mm"
@@ -134,7 +151,26 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_weight="0.10" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/or_button"
+            android:text="@string/wheninrangeof"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/selectlocationbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:text="@string/selectlocation"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/or_button"
@@ -144,42 +180,52 @@
             android:layout_centerHorizontal="true"
             android:text="@string/or_capitilized"
             android:textColor="@android:color/white" />
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.10" >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/selectlocationbutton"
+            android:layout_alignBottom="@+id/selectlocationbutton"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/selectlocationbutton" >
 
-        <Button
-            android:id="@+id/button1"
+            <SeekBar
+                android:id="@+id/distanceseekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:max="10000"
+                android:progress="0"
+                android:secondaryProgress="0" />
+
+            <TextView
+                android:id="@+id/distancetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/distanceseekbar"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+
+        <DatePicker
+            android:id="@+id/datePicker1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignRight="@+id/textView1"
-            android:layout_below="@+id/textView1"
-            android:text="@string/selectlocation"
-            android:textColor="@android:color/white" />
+            android:layout_alignParentTop="true" 
+            android:background="@android:color/white"
+            android:visibility="invisible"/>
 
-        <SeekBar
-            android:id="@+id/seekBar1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/button1"
-            android:layout_toRightOf="@+id/textView1"
-            android:layout_marginRight="10dp"
-            android:progress="0"
-            android:max="100"
-            android:secondaryProgress="0" />
-
-        <TextView
-            android:id="@+id/textView1"
+        <TimePicker
+            android:id="@+id/timePicker1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="@string/wheninrangeof"
-            android:textColor="@android:color/white" />
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/white"
+            android:visibility="invisible" />
+
     </RelativeLayout>
 
 </LinearLayout>

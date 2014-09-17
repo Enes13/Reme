@@ -14,5 +14,6 @@
     <string name="event_settings_1">Remember me when</string>
     <string name="wheninrangeof">When in range of</string>
     <string name="selectlocation">Select Location..</string>
+    <string name="select">Select..</string>
 
 </resources>

@@ -29,24 +29,29 @@ public final class R {
         public static final int reme_launcher2=0x7f020002;
     }
     public static final class id {
-        public static final int DD=0x7f090002;
+        public static final int DD=0x7f090006;
         public static final int MM=0x7f090003;
-        public static final int YY=0x7f090005;
-        public static final int action_settings=0x7f090011;
-        public static final int add_button=0x7f090010;
-        public static final int button1=0x7f09000c;
+        public static final int YY=0x7f090009;
+        public static final int action_settings=0x7f090016;
+        public static final int add_button=0x7f090015;
         public static final int date=0x7f090001;
-        public static final int dot1=0x7f090004;
-        public static final int dot2=0x7f090006;
-        public static final int doubledot1=0x7f090009;
-        public static final int hh=0x7f090008;
-        public static final int imageView1=0x7f09000f;
-        public static final int mm=0x7f09000a;
-        public static final int or_button=0x7f09000b;
+        public static final int datePicker1=0x7f090012;
+        public static final int distanceseekbar=0x7f090010;
+        public static final int distancetext=0x7f090011;
+        public static final int dot1=0x7f090007;
+        public static final int dot2=0x7f090008;
+        public static final int doubledot1=0x7f09000c;
+        public static final int hh=0x7f09000b;
+        public static final int imageView1=0x7f090014;
+        public static final int mm=0x7f090005;
+        public static final int or_button=0x7f09000e;
         public static final int remember_me=0x7f090000;
-        public static final int seekBar1=0x7f09000e;
+        public static final int selectdatebutton=0x7f090002;
+        public static final int selectlocationbutton=0x7f09000f;
+        public static final int selecttimebutton=0x7f090004;
         public static final int textView1=0x7f09000d;
-        public static final int time=0x7f090007;
+        public static final int time=0x7f09000a;
+        public static final int timePicker1=0x7f090013;
     }
     public static final class layout {
         public static final int activity_eventsettings=0x7f030000;
@@ -65,6 +70,7 @@ public final class R {
         public static final int doubledot=0x7f060007;
         public static final int event_settings_1=0x7f060008;
         public static final int or_capitilized=0x7f060003;
+        public static final int select=0x7f06000b;
         public static final int selectlocation=0x7f06000a;
         public static final int time=0x7f060005;
         public static final int wheninrangeof=0x7f060009;
