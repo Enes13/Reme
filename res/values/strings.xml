@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name = "white">
-	    #FFFFFF
-	</color>
+
+    <color name="white">	    #FFFFFF</color>
+
     <string name="app_name">Reme</string>
     <string name="action_settings">Settings</string>
     <string name="and_capitalized">AND</string>
-	<string name="or_capitilized">OR</string>
-	<string name="date">Date:</string>
-	<string name="time">Time:</string>
+    <string name="or_capitilized">OR</string>
+    <string name="date">Date:</string>
+    <string name="time">Time:</string>
     <string name="dot">.</string>
-       <string name="doubledot">:</string>
+    <string name="doubledot">:</string>
     <string name="event_settings_1">Remember me when</string>
+    <string name="wheninrangeof">When in range of</string>
+    <string name="selectlocation">Select Location..</string>
 
 </resources>
