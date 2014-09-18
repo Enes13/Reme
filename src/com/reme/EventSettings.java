@@ -1,7 +1,6 @@
 package com.reme;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,6 +14,8 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.TimePicker.OnTimeChangedListener;
 
 public class EventSettings extends Activity {
 
@@ -25,9 +26,11 @@ public class EventSettings extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eventsettings);
 
+		initTimeFields();
 		init_or_button();
 		initDistanceSeekBar();
 		initSelectDateButton();
+		initSelectTimeButton();
 	}
 
 	@Override
@@ -91,7 +94,6 @@ public class EventSettings extends Activity {
 	}
 
 	private void initSelectDateButton() {
-		setCurrentDate();
 		final DatePicker dp = (DatePicker) findViewById(R.id.datePicker1);
 		Calendar c = Calendar.getInstance();
 		dp.init(c.get(Calendar.YEAR), c.get(Calendar.MONTH),
@@ -119,7 +121,7 @@ public class EventSettings extends Activity {
 		});
 	}
 
-	private void setCurrentDate() {
+	private void initTimeFields() {
 		Calendar c = Calendar.getInstance();
 		int day = c.get(Calendar.DAY_OF_MONTH);
 		int month = c.get(Calendar.MONTH);
@@ -127,10 +129,40 @@ public class EventSettings extends Activity {
 		EditText DD = (EditText) findViewById(R.id.DD);
 		EditText MM = (EditText) findViewById(R.id.MM);
 		EditText YY = (EditText) findViewById(R.id.YY);
+		EditText hh = (EditText) findViewById(R.id.hh);
+		EditText mm = (EditText) findViewById(R.id.mm);
 
 		DD.setText(Integer.toString(day));
 		MM.setText(Integer.toString(month + 1));
 		YY.setText(Integer.toString(year));
+		hh.setText(Integer.toString(c.get(Calendar.HOUR_OF_DAY)));
+		mm.setText(Integer.toString(c.get(Calendar.MINUTE)));
+	}
+
+	private void initSelectTimeButton() {
+		final Button b = (Button) findViewById(R.id.selecttimebutton);
+		final TimePicker tp = (TimePicker) findViewById(R.id.timePicker1);
+
+		tp.setOnTimeChangedListener(new OnTimeChangedListener() {
+
+			@Override
+			public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+				EditText hh = (EditText) findViewById(R.id.hh);
+				EditText mm = (EditText) findViewById(R.id.mm);
+
+				hh.setText(Integer.toString(hourOfDay));
+				mm.setText(Integer.toString(minute));
+
+			}
+		});
+
+		b.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				EventSettings.this.toggleVisibilty(tp);
+			}
+		});
 	}
 
 	private boolean isVisible(View v) {
