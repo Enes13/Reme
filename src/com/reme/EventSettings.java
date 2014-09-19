@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.EditText;
@@ -26,11 +27,12 @@ public class EventSettings extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eventsettings);
 
+		initSelectSpecificDateButton();
+		initSelectDayButton();
+
 		initTimeFields();
 		init_or_button();
 		initDistanceSeekBar();
-		initSelectDateButton();
-		initSelectTimeButton();
 	}
 
 	@Override
@@ -163,6 +165,104 @@ public class EventSettings extends Activity {
 				EventSettings.this.toggleVisibilty(tp);
 			}
 		});
+	}
+
+	private void initSelectSpecificDateButton() {
+		Button b = (Button) findViewById(R.id.selectspecificdatebutton);
+
+		b.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				removeDateButtons();
+
+				initSelectDateButton();
+				initSelectTimeButton();
+
+				createCalendarField();
+				createTimeField();
+			}
+		});
+	}
+
+	private void initSelectDayButton() {
+		Button b = (Button) findViewById(R.id.selectdaybutton);
+		b.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				removeDateButtons();
+
+				initSelectTimeButton();
+
+				createDayField();
+				createTimeField();
+
+			}
+		});
+	}
+
+	private void createDayField() {
+		CheckBox mon = (CheckBox) findViewById(R.id.mon);
+		CheckBox tue = (CheckBox) findViewById(R.id.tue);
+		CheckBox wed = (CheckBox) findViewById(R.id.wed);
+		CheckBox thu = (CheckBox) findViewById(R.id.thu);
+		CheckBox fri = (CheckBox) findViewById(R.id.fri);
+		CheckBox sat = (CheckBox) findViewById(R.id.sat);
+		CheckBox sun = (CheckBox) findViewById(R.id.sun);
+
+		toggleVisibilty(mon);
+		toggleVisibilty(tue);
+		toggleVisibilty(wed);
+		toggleVisibilty(thu);
+		toggleVisibilty(fri);
+		toggleVisibilty(sat);
+		toggleVisibilty(sun);
+	}
+
+	private void createTimeField() {
+		EditText hh = (EditText) findViewById(R.id.hh);
+		EditText mm = (EditText) findViewById(R.id.mm);
+
+		TextView doubledot1 = (TextView) findViewById(R.id.doubledot1);
+		TextView time = (TextView) findViewById(R.id.time);
+
+		Button selectTime = (Button) findViewById(R.id.selecttimebutton);
+
+		toggleVisibilty(hh);
+		toggleVisibilty(mm);
+		toggleVisibilty(doubledot1);
+		toggleVisibilty(selectTime);
+		toggleVisibilty(time);
+
+	}
+
+	private void createCalendarField() {
+		TextView date = (TextView) findViewById(R.id.date);
+		TextView dot1 = (TextView) findViewById(R.id.dot1);
+		TextView dot2 = (TextView) findViewById(R.id.dot2);
+
+		EditText DD = (EditText) findViewById(R.id.DD);
+		EditText MM = (EditText) findViewById(R.id.MM);
+		EditText YY = (EditText) findViewById(R.id.YY);
+
+		Button selectDate = (Button) findViewById(R.id.selectdatebutton);
+
+		toggleVisibilty(date);
+		toggleVisibilty(dot1);
+		toggleVisibilty(dot2);
+		toggleVisibilty(DD);
+		toggleVisibilty(MM);
+		toggleVisibilty(YY);
+		toggleVisibilty(selectDate);
+	}
+
+	private void removeDateButtons() {
+		final Button b = (Button) findViewById(R.id.selectspecificdatebutton);
+		final Button b2 = (Button) findViewById(R.id.selectdaybutton);
+
+		b.setVisibility(View.GONE);
+		b2.setVisibility(View.GONE);
 	}
 
 	private boolean isVisible(View v) {

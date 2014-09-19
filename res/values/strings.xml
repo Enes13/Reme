@@ -15,5 +15,14 @@
     <string name="wheninrangeof">When in range of</string>
     <string name="selectlocation">Select Location..</string>
     <string name="select">Select..</string>
+    <string name="selectspecificdate">Select a specific date..</string>
+    <string name="selectday">Select Day..</string>
+    <string name="mon">Mo</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
+    <string name="sun">Sun</string>
 
 </resources>

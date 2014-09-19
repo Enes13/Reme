@@ -24,7 +24,8 @@
             android:layout_marginLeft="10dp"
             android:text="@string/date"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/selectdatebutton"
@@ -33,16 +34,18 @@
             android:layout_below="@+id/MM"
             android:layout_toRightOf="@+id/date"
             android:text="@string/select"
-            android:textColor="@android:color/white" />
-        
-                <Button
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
+
+        <Button
             android:id="@+id/selecttimebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/MM"
-            android:layout_toLeftOf="@+id/mm"
+            android:layout_toRightOf="@+id/time"
             android:text="@string/select"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/DD"
@@ -54,7 +57,8 @@
             android:ems="10"
             android:hint="DD"
             android:inputType="number"
-            android:textAppearance="?android:attr/textAppearanceLarge" >
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="invisible" >
 
             <requestFocus />
         </EditText>
@@ -67,7 +71,8 @@
             android:layout_toRightOf="@id/DD"
             android:text="@string/dot"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/MM"
@@ -79,7 +84,8 @@
             android:ems="10"
             android:hint="MM"
             android:inputType="number"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/dot2"
@@ -89,7 +95,8 @@
             android:layout_toRightOf="@+id/MM"
             android:text="@string/dot"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/YY"
@@ -101,7 +108,8 @@
             android:ems="10"
             android:hint="YYYY"
             android:inputType="number"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/time"
@@ -112,7 +120,8 @@
             android:layout_toRightOf="@+id/YY"
             android:text="@string/time"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/hh"
@@ -124,7 +133,8 @@
             android:ems="10"
             android:hint="hh"
             android:inputType="time"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/doubledot1"
@@ -134,7 +144,8 @@
             android:layout_toRightOf="@+id/hh"
             android:text="@string/doubledot"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/mm"
@@ -146,7 +157,96 @@
             android:ems="10"
             android:hint="mm"
             android:inputType="time"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/selectspecificdatebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/selectspecificdate"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/selectdaybutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/selectspecificdatebutton"
+            android:layout_centerHorizontal="true"
+            android:text="@string/selectday"
+            android:textColor="@android:color/white" />
+
+        <CheckBox
+            android:id="@+id/mon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white"
+            android:text="@string/mon"
+            android:visibility="invisible" />
+
+        <CheckBox
+            android:id="@+id/tue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/mon"
+            android:background="@android:color/white"
+            android:text="@string/tue"
+            android:visibility="invisible" />
+
+        <CheckBox
+            android:id="@+id/wed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/tue"
+            android:background="@android:color/white"
+            android:text="@string/wed"
+            android:visibility="invisible" />
+
+        <CheckBox
+            android:id="@+id/thu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mon"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/white"
+            android:text="@string/thu"
+            android:visibility="invisible" />
+
+        <CheckBox
+            android:id="@+id/fri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/thu"
+            android:layout_below="@+id/mon"
+            android:background="@android:color/white"
+            android:text="@string/fri"
+            android:visibility="invisible" />
+
+        <CheckBox
+            android:id="@+id/sat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mon"
+            android:layout_toRightOf="@+id/fri"
+            android:background="@android:color/white"
+            android:text="@string/sat"
+            android:visibility="invisible" />
+
+        <CheckBox
+            android:id="@+id/sun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mon"
+            android:layout_toRightOf="@+id/sat"
+            android:background="@android:color/white"
+            android:text="@string/sun"
+            android:visibility="invisible" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -184,17 +284,17 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/selectlocationbutton"
             android:layout_alignBottom="@+id/selectlocationbutton"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/selectlocationbutton" >
+            android:layout_alignTop="@+id/selectlocationbutton"
+            android:layout_toRightOf="@+id/selectlocationbutton" >
 
             <SeekBar
                 android:id="@+id/distanceseekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
                 android:max="10000"
                 android:progress="0"
                 android:secondaryProgress="0" />
@@ -203,8 +303,8 @@
                 android:id="@+id/distancetext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_above="@+id/distanceseekbar"
+                android:layout_centerHorizontal="true"
                 android:textColor="@android:color/white" />
         </RelativeLayout>
 
@@ -213,9 +313,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true" 
+            android:layout_alignParentTop="true"
             android:background="@android:color/white"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <TimePicker
             android:id="@+id/timePicker1"
@@ -225,8 +325,6 @@
             android:layout_centerHorizontal="true"
             android:background="@android:color/white"
             android:visibility="invisible" />
-
-
     </RelativeLayout>
 
 </LinearLayout>
