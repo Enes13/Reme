@@ -2,8 +2,15 @@ package com.reme;
 
 import java.util.Calendar;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.SupportMapFragment;
+
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
+import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,6 +28,7 @@ import android.widget.TimePicker.OnTimeChangedListener;
 public class EventSettings extends Activity {
 
 	private String buttonState;
+	private boolean mapIsVisble;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,8 @@ public class EventSettings extends Activity {
 		initTimeFields();
 		init_or_button();
 		initDistanceSeekBar();
+		initMap();
+		initSelectLocationButton();
 	}
 
 	@Override
@@ -61,6 +71,52 @@ public class EventSettings extends Activity {
 		});
 	}
 
+	private void initSelectLocationButton() {
+		Button b = (Button) findViewById(R.id.selectlocationbutton);
+		
+		b.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				EventSettings.this.toggleMapVisibilty();
+				System.out.println("Button pressed.");
+				
+			}
+		});
+	}
+
+	private void initMap() {
+		this.hideMap();
+	}
+
+	private void hideMap() {
+		FragmentManager fm = getFragmentManager();
+		Fragment map = fm.findFragmentById(R.id.mapfragment);
+		fm.beginTransaction()
+				.setCustomAnimations(android.R.animator.fade_in,
+						android.R.animator.fade_out).hide(map).commit();
+		this.mapIsVisble = false;
+		System.out.println("Map hidden.");
+	}
+	
+	private void showMap() {
+		FragmentManager fm = getFragmentManager();
+		Fragment map = fm.findFragmentById(R.id.mapfragment);
+		fm.beginTransaction()
+				.setCustomAnimations(android.R.animator.fade_in,
+						android.R.animator.fade_out).show(map).commit();
+		this.mapIsVisble = true;
+		System.out.println("Map shown.");
+	}
+	
+	private void toggleMapVisibilty() {
+		if(this.mapIsVisble) {
+			this.hideMap();
+		} else {
+			this.showMap();
+		}
+	}
+
 	private void initDistanceSeekBar() {
 		SeekBar sb = (SeekBar) findViewById(R.id.distanceseekbar);
 		int value = sb.getProgress();
@@ -71,13 +127,11 @@ public class EventSettings extends Activity {
 
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
-				// TODO Auto-generated method stub
 
 			}
 

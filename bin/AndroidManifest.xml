@@ -2,9 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.reme"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1" >
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
@@ -23,15 +33,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-		<activity
+        <activity
             android:name="HomeScreen"
             android:label="@string/app_name" >
         </activity>
-		<activity
+        <activity
             android:name="EventSettings"
             android:label="Event Settings" >
         </activity>
-        
-		</application>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value=" 	
+AIzaSyA7Y-sk0Y_OLmpKqHjnoQ6od120mLkLEtI" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
 
 </manifest>
