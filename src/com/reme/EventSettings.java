@@ -2,13 +2,17 @@ package com.reme;
 
 import java.util.Calendar;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.view.Menu;
@@ -34,6 +38,8 @@ public class EventSettings extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eventsettings);
+
+		Utility.getUserLocation(this);
 
 		initSelectSpecificDateButton();
 		initSelectDayButton();
@@ -73,20 +79,22 @@ public class EventSettings extends Activity {
 
 	private void initSelectLocationButton() {
 		Button b = (Button) findViewById(R.id.selectlocationbutton);
-		
+
 		b.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				EventSettings.this.toggleMapVisibilty();
 				System.out.println("Button pressed.");
-				
+
 			}
 		});
 	}
 
 	private void initMap() {
-		this.hideMap();
+		FragmentManager fm = getFragmentManager();
+		Fragment map = fm.findFragmentById(R.id.mapfragment);
+		map.setMenuVisibility(true);
 	}
 
 	private void hideMap() {
@@ -98,7 +106,7 @@ public class EventSettings extends Activity {
 		this.mapIsVisble = false;
 		System.out.println("Map hidden.");
 	}
-	
+
 	private void showMap() {
 		FragmentManager fm = getFragmentManager();
 		Fragment map = fm.findFragmentById(R.id.mapfragment);
@@ -108,9 +116,9 @@ public class EventSettings extends Activity {
 		this.mapIsVisble = true;
 		System.out.println("Map shown.");
 	}
-	
+
 	private void toggleMapVisibilty() {
-		if(this.mapIsVisble) {
+		if (this.mapIsVisble) {
 			this.hideMap();
 		} else {
 			this.showMap();
@@ -172,7 +180,7 @@ public class EventSettings extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				toggleVisibilty(dp);
+				Utility.toggleVisibilty(dp);
 			}
 		});
 	}
@@ -216,7 +224,7 @@ public class EventSettings extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				EventSettings.this.toggleVisibilty(tp);
+				Utility.toggleVisibilty(tp);
 			}
 		});
 	}
@@ -265,13 +273,13 @@ public class EventSettings extends Activity {
 		CheckBox sat = (CheckBox) findViewById(R.id.sat);
 		CheckBox sun = (CheckBox) findViewById(R.id.sun);
 
-		toggleVisibilty(mon);
-		toggleVisibilty(tue);
-		toggleVisibilty(wed);
-		toggleVisibilty(thu);
-		toggleVisibilty(fri);
-		toggleVisibilty(sat);
-		toggleVisibilty(sun);
+		Utility.toggleVisibilty(mon);
+		Utility.toggleVisibilty(tue);
+		Utility.toggleVisibilty(wed);
+		Utility.toggleVisibilty(thu);
+		Utility.toggleVisibilty(fri);
+		Utility.toggleVisibilty(sat);
+		Utility.toggleVisibilty(sun);
 	}
 
 	private void createTimeField() {
@@ -283,11 +291,11 @@ public class EventSettings extends Activity {
 
 		Button selectTime = (Button) findViewById(R.id.selecttimebutton);
 
-		toggleVisibilty(hh);
-		toggleVisibilty(mm);
-		toggleVisibilty(doubledot1);
-		toggleVisibilty(selectTime);
-		toggleVisibilty(time);
+		Utility.toggleVisibilty(hh);
+		Utility.toggleVisibilty(mm);
+		Utility.toggleVisibilty(doubledot1);
+		Utility.toggleVisibilty(selectTime);
+		Utility.toggleVisibilty(time);
 
 	}
 
@@ -302,13 +310,13 @@ public class EventSettings extends Activity {
 
 		Button selectDate = (Button) findViewById(R.id.selectdatebutton);
 
-		toggleVisibilty(date);
-		toggleVisibilty(dot1);
-		toggleVisibilty(dot2);
-		toggleVisibilty(DD);
-		toggleVisibilty(MM);
-		toggleVisibilty(YY);
-		toggleVisibilty(selectDate);
+		Utility.toggleVisibilty(date);
+		Utility.toggleVisibilty(dot1);
+		Utility.toggleVisibilty(dot2);
+		Utility.toggleVisibilty(DD);
+		Utility.toggleVisibilty(MM);
+		Utility.toggleVisibilty(YY);
+		Utility.toggleVisibilty(selectDate);
 	}
 
 	private void removeDateButtons() {
@@ -319,19 +327,7 @@ public class EventSettings extends Activity {
 		b2.setVisibility(View.GONE);
 	}
 
-	private boolean isVisible(View v) {
-		return v.getVisibility() == View.VISIBLE;
-	}
-
-	private void toggleVisibilty(View v) {
-		if (this.isVisible(v)) {
-			v.setVisibility(View.INVISIBLE);
-		} else {
-			v.setVisibility(View.VISIBLE);
-		}
-	}
-
-	public int getDistanceTestViewValue() {
+	private int getDistanceTestViewValue() {
 		SeekBar sb = (SeekBar) findViewById(R.id.distanceseekbar);
 		return sb.getProgress();
 	}
